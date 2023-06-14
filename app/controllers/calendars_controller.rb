@@ -19,6 +19,7 @@ class CalendarsController < ApplicationController
   end
 #calendars
 
+
   def get_week
     wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
 
@@ -36,15 +37,17 @@ class CalendarsController < ApplicationController
         today_plans.push(plan.plan) if plan.date == @todays_date + x
       end
 
+
       wday_num = @todays_date.wday + x
       if wday_num > 6 
          wday_num = wday_num - 7
      end
-       
+    
       days = { month: (@todays_date + x).month, date: (@todays_date+ x).day, plans: today_plans, wday: wdays[wday_num] }
       @week_days.push(days)
 
     end
 
-w  end
+end
+
 end
